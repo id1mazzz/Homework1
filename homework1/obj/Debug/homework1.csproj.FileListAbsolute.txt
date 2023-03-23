@@ -1,0 +1,11 @@
+C:\Users\dimazzz\Desktop\praktika\homework1\homework1\obj\Debug\homework1.csproj.AssemblyReference.cache
+C:\Users\dimazzz\Desktop\praktika\homework1\homework1\obj\Debug\homework1.csproj.SuggestedBindingRedirects.cache
+C:\Users\dimazzz\Desktop\praktika\homework1\homework1\obj\Debug\homework1.csproj.CoreCompileInputs.cache
+C:\Users\dimazzz\Desktop\praktika\homework1\homework1\bin\Debug\homework1.exe.config
+C:\Users\dimazzz\Desktop\praktika\homework1\homework1\bin\Debug\homework1.exe
+C:\Users\dimazzz\Desktop\praktika\homework1\homework1\bin\Debug\homework1.pdb
+C:\Users\dimazzz\Desktop\praktika\homework1\homework1\obj\Debug\homework1.exe
+C:\Users\dimazzz\Desktop\praktika\homework1\homework1\obj\Debug\homework1.pdb
+C:\Users\dimazzz\Desktop\praktika\homework1\homework1\bin\Debug\Library.dll
+C:\Users\dimazzz\Desktop\praktika\homework1\homework1\bin\Debug\Library.pdb
+C:\Users\dimazzz\Desktop\praktika\homework1\homework1\obj\Debug\homework1.csproj.CopyComplete
