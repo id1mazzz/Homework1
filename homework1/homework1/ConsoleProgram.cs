@@ -12,11 +12,11 @@ namespace homework1
 
             Console.WriteLine("Введите число");
             int n = Convert.ToInt32(Console.ReadLine());
-            x.GetSequence(n);
+            x.GetNumberSequence(n);
 
             Console.WriteLine("\n Введите нечетное число");
             int N = Convert.ToInt32(Console.ReadLine());
-            x.ShowSquare(N);
+            x.DisplaySquare(N);
         }
     }
 }

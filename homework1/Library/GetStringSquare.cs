@@ -13,60 +13,63 @@ namespace Library
     /// </summary>
     public class GetStringSquare
     {
+        private const int MinimumSideLength = 0;
+
         /// <summary>
-        /// Формирование и возврат строки от 1 до заданного числа.
+        /// Формирует и возвращает строку чисел от 1 до заданного числа, разделенных запятой.
         /// </summary>
         /// <param name="n">Количество чисел в последовательности.</param>
-        public int GetSequence(int n)
+        /// <returns>Строка, содержащая последовательность чисел от 1 до n, разделенных запятой.</returns>
+        public string GetNumberSequence(int n)
         {
-            for (int result = 1; result <= n; result++)
-            {
-                Console.Write(result + ",");
-            }
-
-            return n;
+            var sequence = string.Join(",", Enumerable.Range(1, n));
+            Console.WriteLine(sequence);
+            return sequence;
         }
-        private const int MinN = 0;
+
         /// <summary>
-        /// Вывод на экран квадрата из # с указанным количеством строк.
+        /// Выводит на экран квадрат из # с указанным количеством строк.
         /// </summary>
-        /// <param name="n">Cторона квадрата. </param>
-        public int ShowSquare(int n)
+        /// <param name="sideLength">Cторона квадрата.</param>
+        /// <returns>0, если квадрат был успешно выведен на экран.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">Вызывается, если размер стороны меньше нуля.</exception>
+        public int DisplaySquare(int sideLength)
         {
-            if(n < MinN)
+            if (sideLength < MinimumSideLength)
             {
-                throw new ArgumentOutOfRangeException(nameof(n), $"Размер стороны не может быть отрицательным");
+                throw new ArgumentOutOfRangeException(nameof(sideLength), $"Размер стороны не может быть меньше нуля");
+            }
+            if (sideLength % 2 == 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(sideLength), $"Размер стороны должен быть нечетным");
             }
 
-            else
+            for (int i = 0; i < sideLength; i++)
             {
-                for (int i = 0; i < n; i++)
+                for (int j = 0; j < sideLength; j++)
                 {
-                    for (int j = 0; j < n; j++)
+                    if ((j == 0 && i == 0) || (j == sideLength - 1 && i == 0) || (j == 0 && i == sideLength - 1) || (j == sideLength - 1 && i == sideLength - 1))
                     {
-                        if ((j == 0 && i == 0) || (j == n - 1 && i == 0) || (j == 0 && i == n - 1) || (j == n - 1 && i == n - 1))
+                        // Выводим пробел в углах квадрата
+                        Console.Write(" ");
+                    }
+                    else
+                    {
+                        if (i == sideLength / 2 && j == sideLength / 2)
                         {
+                            // Выводим пробел в центре квадрата
                             Console.Write(" ");
                         }
-
                         else
                         {
-                            if (i == n / 2 && j == n / 2)
-                            {
-                                Console.Write(" ");
-                            }
-
-                            else
-                            {
-                                Console.Write("#");
-                            }
+                            // Выводим #
+                            Console.Write("#");
                         }
                     }
-                    Console.WriteLine();
                 }
-                return 0;
+                Console.WriteLine();
             }
-            
+            return 0;
         }
     }
 }
