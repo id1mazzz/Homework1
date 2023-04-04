@@ -17,47 +17,56 @@ namespace Library
         /// Формирование и возврат строки от 1 до заданного числа.
         /// </summary>
         /// <param name="n">Количество чисел в последовательности.</param>
-        public void GetSequence()
+        public int GetSequence(int n)
         {
-            Console.Write("Введите число N: ");
-            int n = int.Parse(Console.ReadLine());
-            string result = string.Join(", ", Enumerable.Range(1, n));
-            Console.WriteLine(result);
-        }
+            for (int result = 1; result <= n; result++)
+            {
+                Console.Write(result + ",");
+            }
 
+            return n;
+        }
+        private const int MinN = 0;
         /// <summary>
         /// Вывод на экран квадрата из # с указанным количеством строк.
         /// </summary>
-        /// <param name="N">Высота квадрата (количество строк). </param>
-        public void ShowSquare()
+        /// <param name="n">Cторона квадрата. </param>
+        public int ShowSquare(int n)
         {
-            Console.Write("Введите нечетное число N: ");
-            int N = int.Parse(Console.ReadLine());
-            if (N % 2 == 0)
+            if(n < MinN)
             {
-                throw new ArgumentOutOfRangeException(nameof(N), "N должно быть нечетным");
-                
+                throw new ArgumentOutOfRangeException(nameof(n), $"Размер стороны не может быть отрицательным");
             }
 
-            double enter = N / 2 + 1;
-
-            for (int row = 1; row <= N; row++)
+            else
             {
-                for (int column = 1; column <= N; column++)
+                for (int i = 0; i < n; i++)
                 {
-                    if (row == enter && column == enter)
+                    for (int j = 0; j < n; j++)
                     {
-                        Console.Write(" ");
-                    }
+                        if ((j == 0 && i == 0) || (j == n - 1 && i == 0) || (j == 0 && i == n - 1) || (j == n - 1 && i == n - 1))
+                        {
+                            Console.Write(" ");
+                        }
 
-                    else
-                    {
-                        Console.Write("#");
-                    }
+                        else
+                        {
+                            if (i == n / 2 && j == n / 2)
+                            {
+                                Console.Write(" ");
+                            }
 
+                            else
+                            {
+                                Console.Write("#");
+                            }
+                        }
+                    }
+                    Console.WriteLine();
                 }
-                Console.WriteLine();
+                return 0;
             }
+            
         }
     }
 }
