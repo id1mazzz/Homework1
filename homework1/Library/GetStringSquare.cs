@@ -22,7 +22,11 @@ namespace Library
         /// <returns>Строка, содержащая последовательность чисел от 1 до n, разделенных запятой.</returns>
         public string GetNumberSequence(int n)
         {
-            var sequence = string.Join(",", Enumerable.Range(1, n));
+            if (n < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(n), $"Размер строки не может быть меньше нуля");
+            }
+            var sequence = string.Join(", ", Enumerable.Range(1, n));
             Console.WriteLine(sequence);
             return sequence;
         }
@@ -44,11 +48,14 @@ namespace Library
                 throw new ArgumentOutOfRangeException(nameof(sideLength), $"Размер стороны должен быть нечетным");
             }
 
-            for (int i = 0; i < sideLength; i++)
+            for (var i = 0; i < sideLength; i++)
             {
-                for (int j = 0; j < sideLength; j++)
+                for (var j = 0; j < sideLength; j++)
                 {
-                    if ((j == 0 && i == 0) || (j == sideLength - 1 && i == 0) || (j == 0 && i == sideLength - 1) || (j == sideLength - 1 && i == sideLength - 1))
+                    if ((j == 0 && i == 0) || 
+                        (j == sideLength - 1 && i == 0) || 
+                        (j == 0 && i == sideLength - 1) || 
+                        (j == sideLength - 1 && i == sideLength - 1))
                     {
                         // Выводим пробел в углах квадрата
                         Console.Write(" ");
